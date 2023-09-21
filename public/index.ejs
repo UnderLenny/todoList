@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
+<<<<<<< HEAD:views/index.ejs
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -11,11 +12,21 @@
   <div class="header">
     <h1 class="header_title">Todo List Demo App</h1>
     <h3>If you are going through hell, go without stopping</h3>
+=======
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+  <div class=".container">
+  <div class="header">
+    <h1 class="header_title">Todo List Demo App</h1>
+    <h2>If you are going through hell, go without stopping</h2>
+>>>>>>> b43fef439ed0f330975f411f53c5e9f77b820071:public/index.ejs
   </div>
   <form action="/" method="post" autocomplete="off">
     <input class = "input"type="text" placeholder="Add todos..." name="todoValue", required>
     <button type="submit">Add task</button>
   </form>
+<<<<<<< HEAD:views/index.ejs
   <table>
     <thead>
       <tr>
@@ -40,6 +51,16 @@
       <% } %>
     </tbody>
   </table>
+=======
+
+  <% if(todos) { %>
+    <% todos.forEach(todoValue => { %>
+      <div class = "todo-container">
+        <div class="todo-value"> <%= todoValue.todo %></div>
+      </div>
+      <%  }) %>
+  <% } %>
+>>>>>>> b43fef439ed0f330975f411f53c5e9f77b820071:public/index.ejs
   </div>
 </body>
 </html>

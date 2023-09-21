@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;700&display=swap');
+
+.container {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.header {
+  font-family: 'Martian Mono', monospace;
+}
+
+.header_title {
+  font-family: 'Martian Mono', monospace;
+  font-weight: bold;
+  font-size: 50px;
+}
