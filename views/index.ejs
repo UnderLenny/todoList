@@ -7,23 +7,40 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <div class=".container">
+  <div class="container">
   <div class="header">
     <h1 class="header_title">Todo List Demo App</h1>
-    <h2>If you are going through hell, go without stopping</h2>
+    <h3>If you are going through hell, go without stopping</h3>
   </div>
   <form action="/" method="post" autocomplete="off">
-    <input type="text" placeholder="Add todos..." name="todoValue", required>
-    <button type="submit">Add</button>
+    <input class = "input"type="text" placeholder="Add todos..." name="todoValue", required>
+    <button type="submit">Add task</button>
   </form>
 
-  <% if(todos) { %>
-    <% todos.forEach(todoValue => { %>
-      <div class = "todo-container">
-        <div class="todo-value"> <%= todoValue.todo %></div>
-      </div>
-      <%  }) %>
-  <% } %>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Task Name</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if(todos) { %>
+        <% todos.forEach((todoValue, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= todoValue.todo %></td> 
+            <td><a href=">">Status</a></td> 
+            <td><a href=">">Edit</a></td> 
+            <td><a href=">">Remove</a></td>
+          </tr>
+        <% }) %>
+      <% } %>
+    </tbody>
+  </table>
   </div>
 </body>
 </html>
