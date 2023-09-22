@@ -11,11 +11,12 @@ const router = express.Router();
 app.set("view engine", "ejs")
 app.use(express.static(`/${__dirname}/views`));
 
+app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'views')));
-app.use(methodOverride("_method"));
+
 
 app.use("/", todoRouter);
 

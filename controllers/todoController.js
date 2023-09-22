@@ -21,12 +21,22 @@ exports.createTodo = (req, res) => {
   }
 };
 
-exports.deleteTodo = async (req, res) => {
+exports.deleteTodo = async (req, res) => { 
   try {
-    const taskId = req.params.id;
-    const result = await Todo.findByIdAndRemove(taskId);
-    console.log(req.params.id);
-    res.redirect('/');
+    const deletedTodo = await Todo.findByIdAndDelete(req.params._id);
+
+    if (!deletedTodo) {
+      return res.status(404).json({
+        status: 'fail',
+        message: 'Todo not found',
+      });
+    }
+
+    res.status(204).json({
+      status: 'success',
+      todo: deletedTodo,
+    });
+    
   } catch(err) {
     console.log(err);
   }
