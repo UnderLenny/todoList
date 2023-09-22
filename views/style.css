@@ -12,7 +12,6 @@ body {
   color: black;
 }
 
-/* Стиль для формы */
 form {
   text-align: left;
   margin: 0 0 20px 50px;
@@ -63,3 +62,16 @@ td {
   font-weight: bold;
 }
 
+.Complete {
+  border: 2px solid #158507;
+  padding: 5px;
+  color:#158507;
+  border-radius: 5px;
+}
+
+.Todo {
+  border: 2px solid #4f4d4d;
+  padding: 5px;
+  color: #4f4d4d;
+  border-radius: 8px;
+}

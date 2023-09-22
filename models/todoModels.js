@@ -5,10 +5,14 @@ const todoSchema = new mongoose.Schema({
     type: String, 
     required: [true, 'A task must have a name']
   },
-  // done: {
-  //   type: boolean, 
-  //   required: [false, 'A task must have a status']
-  // }
+  status: {
+    type: String, 
+    required: [true, 'A task must have a status'],
+    enum: {
+      values: ['Complete', 'Todo']
+    },
+    default: 'Todo'
+  }
 })
 const Todo = mongoose.model('Todo', todoSchema);
 
