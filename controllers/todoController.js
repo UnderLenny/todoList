@@ -44,26 +44,33 @@ exports.deleteTodo = async (req, res) => {
 
 exports.changeStatus = async (req, res) => {
   try {
-    const taskId = req.params.id;
+    const taskId = req.params._id; // Замените "id" на "_id" для параметра
 
-    // Проверяем, что taskId не равно undefined или пустой строке
     if (!taskId) {
       return res.status(400).json({ error: 'Invalid task ID' });
     }
 
     const todo = await Todo.findById(taskId);
 
-    // Изменяем статус задачи
-    if (todo.status === 'Todo') {
-      todo.status = 'Complete';
-    } else {
-      todo.status = 'Todo';
+    if (!todo) {
+      return res.status(404).json({ error: 'Todo not found' });
     }
 
-    // Сохраняем изменения в базе данных
-    await todo.save();
-   } catch(err) {
-    console.log(err)
-   }
+    // Меняем статус задачи на противоположный
+    todo.status = todo.status === 'Todo' ? 'Complete' : 'Todo';
 
-}
+    await todo.save();
+
+    console.log(`Задача с ID ${taskId} успешно обновлена на статус: ${todo.status}`); // Добавляем логирование
+
+    res.status(200).json({
+      status: 'success',
+      todo: {
+        todo: todo.status,
+      },
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to update task status' });
+  }
+};

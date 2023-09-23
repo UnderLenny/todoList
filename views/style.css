@@ -33,7 +33,10 @@ button {
   color: black;
   cursor: pointer;
 }
-
+.form {
+  width: 90%;
+  margin: 0 auto;
+}
 table {
   width: 90%;
   margin: 20px auto;
@@ -49,10 +52,12 @@ th {
 }
 
 td {
-  padding: 10px;
-  border: 1px solid #ddd;
+  padding: 12px;
+  border: 1px solid #ddd1d1;
   text-align: center;
 }
+
+
 
 .todo-value {
   font-size: 16px;
@@ -62,11 +67,12 @@ td {
   font-weight: bold;
 }
 
+
 .Complete {
   border: 2px solid #158507;
   padding: 5px;
   color:#158507;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .Todo {
@@ -78,4 +84,8 @@ td {
 
 .todo_delete_pics {
   background-size: 20px 30px;
+}
+
+#todo-status {
+  cursor: pointer;
 }
