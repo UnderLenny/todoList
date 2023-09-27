@@ -8,10 +8,14 @@ router
   .get(todoController.getTodo)
   .post(todoController.createTodo)
 
-
 router
   .route('/:_id')
   .delete(todoController.deleteTodo)
-  .patch(todoController.changeStatus)
-
+  .patch((req, res) => {
+    if (req.body.status) {
+      return todoController.changeStatus(req, res);
+    } else {
+      return todoController.changeTaskName(req, res);
+    }
+  })
 module.exports = router;

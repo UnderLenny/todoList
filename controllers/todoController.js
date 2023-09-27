@@ -9,13 +9,13 @@ exports.getTodo = async (req, res) => {
   }
 };
 
-exports.createTodo = (req, res) => {
+exports.createTodo = async (req, res) => {
   try {
     const todo = new Todo({
       todo: req.body.todoValue,
     });
-    todo.save();
-    res.redirect("/");
+    await todo.save();
+    res.redirect('/tasks');
   } catch (err) {
     console.log(err);
   }
@@ -44,14 +44,13 @@ exports.deleteTodo = async (req, res) => {
 
 exports.changeStatus = async (req, res) => {
   try {
-    const taskId = req.params._id; // Замените "id" на "_id" для параметра
+    const taskId = req.params._id; 
 
     if (!taskId) {
       return res.status(400).json({ error: 'Invalid task ID' });
     }
 
     const todo = await Todo.findById(taskId);
-
     if (!todo) {
       return res.status(404).json({ error: 'Todo not found' });
     }
@@ -60,8 +59,7 @@ exports.changeStatus = async (req, res) => {
     todo.status = todo.status === 'Todo' ? 'Complete' : 'Todo';
 
     await todo.save();
-
-    console.log(`Задача с ID ${taskId} успешно обновлена на статус: ${todo.status}`); // Добавляем логирование
+    console.log(`Задача с ID [${taskId}] успешно обновлена на статус: ${todo.status}`); // Добавляем логирование
 
     res.status(200).json({
       status: 'success',
@@ -74,3 +72,29 @@ exports.changeStatus = async (req, res) => {
     res.status(500).json({ error: 'Failed to update task status' });
   }
 };
+
+exports.changeTaskName = async (req, res) => {
+  try {
+    const todoId = req.params._id;
+    const updatedTodoName = req.body.todo;
+
+    const todo = await Todo.findByIdAndUpdate(todoId, { todo: updatedTodoName }, {
+      new: true,
+    });
+
+    if (!todo) {
+      return res.status(400).json({ error: 'No todo found with that ID' });
+    }
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        todo: updatedTodoName,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Failed to update task name' });
+  }
+};
+

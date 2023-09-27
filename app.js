@@ -17,7 +17,14 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'views')));
 
+app.use((req, res, next) => {
+  if (req.url === "/") {
+    res.redirect("/tasks");
+  } else {
+    next();
+  }
+});
 
-app.use("/", todoRouter);
+app.use('/tasks', todoRouter);
 
 module.exports = app;

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
   <link rel="stylesheet" href="/style.css">
+  <link rel="shortcut icon" href="./svg/todo-logo.svg" />
 </head>
 <body>
   <div class="container">
@@ -13,15 +14,15 @@
     <h3>If you are going through hell, go without stopping</h3>
   </div>
   <div class="form">
-    <form action="/" method="post" autocomplete="off">
-      <input class = "input"type="text" placeholder="Add todos..." name="todoValue", required>
+    <form action="/tasks" method="post" autocomplete="off">
+      <input class = "input"type="text" placeholder="Add todos..." name="todoValue", required maxlength="30">
       <button type="submit">Add task</button>
     </form>
   </div>
   <table>
     <thead>
       <tr>
-        <th>#</th>
+        <th class="order">#</th>
         <th>Task Name</th>
         <th>Status</th>
         <th>Edit</th>
@@ -31,13 +32,13 @@
     <tbody>
       <% if(todos) { %>
         <% todos.forEach((todoValue, index) => { %>
-          <tr>
-            <td><%= index + 1 %></td>
-            <td><%= todoValue.todo %></td> 
-            <td><a id="todo-status" class="<%= todoValue.status %>" data-id="<%= todoValue._id %>"><%= todoValue.status %></a></td>
-            <td><a href="#"><img src="./svg/edit.svg" width="25"></a></td> 
-            <td><a class='todo-delete' href="#" data-id="<%= todoValue._id %>"><img class="todo_delete_pics" src="./svg/trash.svg" width="30"></a></td>
-          </tr>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><a class="todo-value task-name" data-id="<%= todoValue._id %>"><%= todoValue.todo %></a></td> 
+          <td><a class="todo-status <%= todoValue.status %>" data-id="<%= todoValue._id %>"><%= todoValue.status %></a></td>
+          <td><a class="todo-edit"><img src="./svg/edit.svg" width="25" data-id="<%= todoValue._id %>"></a></td> 
+          <td><a class='todo-delete' href="#" data-id="<%= todoValue.id %>"><img class="todo_delete_pics" src="./svg/trash.svg" width="30"></a></td>
+        </tr>
         <% }) %>
       <% } %>
     </tbody>
@@ -55,7 +56,7 @@
       const todoId = button.getAttribute('data-id');
 
       try {
-        const response = await fetch(`/${todoId}`, {
+        const response = await fetch(`/tasks/${todoId}`, {
           method: 'DELETE',
         });
 
@@ -71,7 +72,7 @@
   });
 
 // Изменение статуса при нажатии
-const todoStatusElements = document.querySelectorAll('#todo-status');
+const todoStatusElements = document.querySelectorAll('.todo-status');
 
 todoStatusElements.forEach((element) => {
   element.addEventListener('click', async (e) => {
@@ -84,7 +85,7 @@ todoStatusElements.forEach((element) => {
     try {
       const newStatus = currentStatus === 'Todo' ? 'Complete' : 'Todo';
 
-      const response = await fetch(`/${todoId}`, {
+      const response = await fetch(`tasks/${todoId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -102,6 +103,49 @@ todoStatusElements.forEach((element) => {
     } catch (err) {
       console.error('Failed to delete todo status:', err);
     }
+  });
+});
+
+// Кнопка edit
+const editIcons = document.querySelectorAll('img[src="./svg/edit.svg"]');
+editIcons.forEach((icon) => {
+  icon.addEventListener('click', () => {
+    const row = icon.closest('tr');
+    const taskText = row.querySelector('.task-name');
+
+    const inputElement = document.createElement('input');
+    inputElement.value = taskText.textContent;
+    inputElement.classList.add('borderless');
+    inputElement.setAttribute('data-id', icon.getAttribute('data-id'))
+    inputElement.setAttribute('maxlength', '30'); 
+
+    taskText.replaceWith(inputElement);
+
+    inputElement.addEventListener('keydown', async (e) => {
+      if (e.key === 'Enter') {
+        const todoId = icon.getAttribute('data-id');
+        
+        try {
+          const response = await fetch(`/tasks/${todoId}`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ todo: inputElement.value }),
+          });
+
+          if (response.status === 200) {
+            taskText.textContent = inputElement.value;
+          } else {
+            console.error('Failed to update todo');
+          }
+        } catch (err) {
+          console.error('Failed to update todo:', err);
+        }
+        inputElement.replaceWith(taskText);
+      }
+    });
+    inputElement.focus();
   });
 });
 

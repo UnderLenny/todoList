@@ -17,12 +17,21 @@ form {
   margin: 0 0 20px 50px;
 }
 
-input {
+.input {
   width: 80%;
   padding: 10px;
   font-size: 16px;
   border-radius: 12px;
 }
+
+.borderless {
+  font-family: 'Martian Mono', monospace;
+  font-size: 16px;
+  border: none;
+  outline: none; 
+  background-color: transparent; 
+}
+
 
 button {
   padding: 10px 20px;
@@ -42,6 +51,7 @@ table {
   margin: 20px auto;
   border-collapse: collapse;
   font-size: 18px;
+  table-layout: fixed;
 }
 
 th {
@@ -57,16 +67,17 @@ td {
   text-align: center;
 }
 
-
-
 .todo-value {
   font-size: 16px;
+}
+
+.order {
+  width: 50px;
 }
 
 .header_title {
   font-weight: bold;
 }
-
 
 .Complete {
   border: 2px solid #158507;
@@ -86,6 +97,11 @@ td {
   background-size: 20px 30px;
 }
 
-#todo-status {
+.todo-status {
   cursor: pointer;
 }
+
+.todo-edit {
+  cursor: pointer;
+}
+
