@@ -33,7 +33,7 @@
       <% if(todos) { %>
         <% todos.forEach((todoValue, index) => { %>
         <tr>
-          <td><%= index + 1 %></td>
+          <td><a class="todo-index"><%= index + 1 %></a></td>
           <td><a class="todo-value task-name" data-id="<%= todoValue._id %>"><%= todoValue.todo %></a></td> 
           <td><a class="todo-status <%= todoValue.status %>" data-id="<%= todoValue._id %>"><%= todoValue.status %></a></td>
           <td><a class="todo-edit"><img src="./svg/edit.svg" width="25" data-id="<%= todoValue._id %>"></a></td> 
@@ -44,7 +44,7 @@
     </tbody>
   </table>
   </div>
-</body>
+</body> 
 <script>
   // Кнопка удаления
   const deleteButtons = document.querySelectorAll('.todo-delete');
@@ -54,14 +54,14 @@
       e.preventDefault();
 
       const todoId = button.getAttribute('data-id');
-
+      
       try {
         const response = await fetch(`/tasks/${todoId}`, {
           method: 'DELETE',
         });
 
         if (response.status === 204) {
-          window.location.reload();
+          button.closest('tr').remove();
         } else {
           console.error('Failed to delete todo');
         }
