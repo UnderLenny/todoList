@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskManager: организуйте свою жизнь в движении</title>
+    <link rel="stylesheet" href="styles/onboard-style.css" />
+    <link rel="shortcut icon" href="./svg/onboard-logo.png" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <div class="logo-block">
+          <a class="logo-text">TaskManager</a>
+        </div>
+        <div class="nav-list">
+          <a class="nav-link" href="">О нас</a>
+          <a class="nav-link" href="">Тех.Поддержка</a>
+          <a class="nav-link" href="">Войти</a>
+          <a class="start-button" href="">Начать бесплатно</a>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="main-section">
+        <h1 class="header-title">Добро пожаловать в TaskManager!</h1>
+        <p class="text-title">
+          Воспользуйтесь всеми преимуществами нашего продукта для повышения
+          эффективности вашей повседневной работы.
+        </p>
+        <a class="start-button">Начать бесплатно</a>
+      </div>
+    </div>
+    <section class="section-newsletter">
+      <div class="container">
+        <form
+          action="/onboarding"
+          method="post"
+          class="form"
+          name="userMail"
+          onsubmit="return validateEmail()"
+        >
+          <h2 class="newsletter-title">
+            Подпишись на нашу рассылку, чтобы узнавать больше новостей о нашем
+            продукте.
+          </h2>
+          <input
+            class="newsletter-input"
+            type="text"
+            placeholder="E-mail"
+            name="emailValue"
+          />
+          <button class="start-button">Подписаться</button>
+        </form>
+        <div class="error-notification" id="errorNotification"></div>
+      </div>
+    </section>
+  </body>
+  <script>
+    function validateEmail() {
+      const emailInput = document.querySelector(".newsletter-input");
+      const errorNotification = document.querySelector(".error-notification");
+
+      const email = emailInput.value.trim();
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        errorNotification.innerText = "Некорректный адрес электронной почты";
+        errorNotification.classList.add("show");
+
+        setTimeout(() => {
+          errorNotification.innerText = "";
+          errorNotification.classList.remove("show");
+        }, 8000);
+
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</html>

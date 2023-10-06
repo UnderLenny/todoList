@@ -1,15 +1,16 @@
 const express = require("express");
+
 const app = express();
-const path = require('path');
+const path = require("path");
 const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
-const todoRouter = require('./routes/todoRouters')
-
-const router = express.Router();
+const todoRouter = require("./routes/todoRouters");
+const onboardingRouter = require("./routes/onboardingRouters");
 
 // view engine setup
-app.set("view engine", "ejs")
-app.use(express.static(path.join(__dirname, 'views')));
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "views")));
+app.use(express.static(path.join(__dirname, "views/styles")));
 
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
   }
 });
 
-app.use('/tasks', todoRouter);
+app.use("/onboarding", onboardingRouter);
+app.use("/tasks", todoRouter);
 
 module.exports = app;
