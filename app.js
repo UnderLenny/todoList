@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use((req, res, next) => {
   if (req.url === "/") {
-    res.redirect("/tasks");
+    res.redirect("/onboarding");
   } else {
     next();
   }
