@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "husky": {
+    "pre-commit": "npm run lint"
+  },
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "npm run build && ts-node build/server",
+    "dev": "nodemon src/server.js",
+    "build": "rimraf ./build && npx tsc",
+    "watch": "tsc -w"
   },
   "author": "lenny",
   "license": "ISC",
@@ -18,13 +23,23 @@
     "method-override": "^3.0.0",
     "mongoose": "^7.5.2",
     "nodemailer": "^6.9.5",
-    "npx": "^10.2.2",
+    "npx": "^3.0.0",
     "path": "^0.12.7",
     "validator": "^13.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",
     "@babel/eslint-parser": "^7.22.15",
+    "@types/connect": "^3.4.36",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.19",
+    "@types/method-override": "^0.0.33",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^20.8.4",
+    "@types/nodemailer": "^6.4.11",
+    "@types/validator": "^13.11.2",
+    "@typescript-eslint/eslint-plugin": "^6.7.5",
+    "@typescript-eslint/parser": "^6.7.5",
     "eslint": "^8.50.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.0.0",
@@ -34,7 +49,11 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",
+    "husky": "^8.0.3",
     "nodemon": "^3.0.1",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   }
 }

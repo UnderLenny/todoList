@@ -1,9 +1,12 @@
 module.exports = {
-  extends: ["airbnb-base", "prettier"],
+  parser: "@typescript-eslint/parser",
+  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   parserOptions: {
-    requireConfigFile: false,
+    ecmaVersion: 2018,
+    sourceType: "module",
   },
   env: {
+    node: true,
     browser: true,
     es6: true,
     jest: true,
@@ -14,5 +17,5 @@ module.exports = {
     "prefer-template": 0,
     "no-unused-vars": ["error", { args: "none" }],
   },
-  plugins: ["babel"],
+  plugins: ["@typescript-eslint"],
 };

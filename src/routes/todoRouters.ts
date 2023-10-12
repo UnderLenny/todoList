@@ -1,5 +1,5 @@
-const express = require("express");
-const todoController = require("../controllers/todoController");
+import express from "express";
+import * as todoController from "./../controllers/todoController";
 
 const router = express.Router();
 
@@ -11,8 +11,7 @@ router
   .patch((req, res) => {
     if (req.body.status) {
       return todoController.changeStatus(req, res);
-    } 
-      return todoController.changeTaskName(req, res);
-    
+    }
+    return todoController.changeTaskName(req, res);
   });
-module.exports = router;
+export default router;

@@ -1,8 +1,7 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-underscore-dangle */
-const Todo = require("../models/todoModel");
+import Todo from "./../models/todoModel";
+import { Request, Response } from "express";
 
-exports.getTodo = async (req, res) => {
+export const getTodo = async (req: Request, res: Response) => {
   try {
     const todos = await Todo.find();
     res.render("./index", { todos });
@@ -11,7 +10,7 @@ exports.getTodo = async (req, res) => {
   }
 };
 
-exports.createTodo = async (req, res) => {
+export const createTodo = async (req: Request, res: Response) => {
   try {
     const todo = new Todo({
       todo: req.body.todoValue,
@@ -23,7 +22,7 @@ exports.createTodo = async (req, res) => {
   }
 };
 
-exports.deleteTodo = async (req, res) => {
+export const deleteTodo = async (req: Request, res: Response) => {
   try {
     const deletedTodo = await Todo.findByIdAndDelete(req.params._id);
 
@@ -43,7 +42,7 @@ exports.deleteTodo = async (req, res) => {
   }
 };
 
-exports.changeStatus = async (req, res) => {
+export const changeStatus = async (req: Request, res: Response) => {
   try {
     const taskId = req.params._id;
 
@@ -76,7 +75,7 @@ exports.changeStatus = async (req, res) => {
   }
 };
 
-exports.changeTaskName = async (req, res) => {
+export const changeTaskName = async (req: Request, res: Response) => {
   try {
     const todoId = req.params._id;
     const updatedTodoName = req.body.todo;
