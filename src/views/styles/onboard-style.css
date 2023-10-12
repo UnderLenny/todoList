@@ -67,6 +67,7 @@ body {
   font-size: 20px;
   color: #232115;
 }
+
 .main-section {
   text-align: center;
   width: 800px;
@@ -102,18 +103,6 @@ body {
   margin-top: 5px;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-weight: 600;
-}
-
-.form input {
-  margin-bottom: 5px;
-  padding: 8px;
-}
-
 .newsletter-title {
   font-weight: 800;
 }
@@ -124,7 +113,7 @@ body {
 }
 
 .error-notification {
-  display: none; /* Скрываем по умолчанию */
+  display: none;
   border: 1px solid #ffd36e;
   border-radius: 15px;
   background-color: #ffd36e;
@@ -137,4 +126,43 @@ body {
 .error-notification.show {
   display: inline;
   animation: none;
+}
+
+.main {
+  margin-top: 5px;
+}
+
+.thesis {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 80px;
+}
+
+.thesis-img {
+  max-width: 568px;
+  border-radius: 16px;
+}
+
+.thesis-block {
+  padding: 42px 60px 0 60px;
+}
+
+.thesis-title {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 40px;
+}
+
+.thesis-paragraph {
+  font-size: 20px;
+}
+
+/* Footer */
+.footer {
+  margin-top: 50px;
+  padding: 50px;
+}
+
+.footer-text {
+  text-align: center;
 }

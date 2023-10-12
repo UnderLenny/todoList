@@ -9,10 +9,11 @@
   </head>
   <body>
     <div class="container">
-      <div class="header">
-        <h1 class="header_title">Todo List Demo App</h1>
-        <h3>If you are going through hell, go without stopping</h3>
-      </div>
+      <header>
+        <h1>Todo List</h1>
+        <p>If you are going through hell, go without stopping</p>
+      </header>
+
       <div class="form">
         <form action="/tasks" method="post" autocomplete="off">
           <input
@@ -20,17 +21,17 @@
             type="text"
             placeholder="Add todos..."
             name="todoValue"
-            ,
             required
             maxlength="30"
           />
-          <button type="submit">Add task</button>
+          <button type="submit">Add Task</button>
         </form>
       </div>
+
       <table>
         <thead>
           <tr>
-            <th class="order">#</th>
+            <th>#</th>
             <th>Task Name</th>
             <th>Status</th>
             <th>Edit</th>
@@ -40,31 +41,28 @@
         <tbody>
           <% if(todos) { %> <% todos.forEach((todoValue, index) => { %>
           <tr>
-            <td><a class="todo-index"><%= index + 1 %></a></td>
+            <td><span class="todo-index"><%= index + 1 %></span></td>
             <td>
-              <a class="todo-value task-name" data-id="<%= todoValue._id %>"
-                ><%= todoValue.todo %></a
+              <span class="todo-value task-name" data-id="<%= todoValue._id %>"
+                ><%= todoValue.todo %></span
               >
             </td>
             <td>
-              <a
+              <span
                 class="todo-status <%= todoValue.status %>"
                 data-id="<%= todoValue._id %>"
-                ><%= todoValue.status %></a
+                ><%= todoValue.status %></span
               >
             </td>
             <td>
-              <a class="todo-edit"
-                ><img
-                  src="./svg/edit.svg"
-                  width="25"
-                  data-id="<%= todoValue._id %>"
-              /></a>
+              <span class="todo-edit" data-id="<%= todoValue._id %>">
+                <img src="/svg/edit.svg" alt="Edit" width="20" />
+              </span>
             </td>
             <td>
-              <a class="todo-delete" href="#" data-id="<%= todoValue.id %>"
-                ><img class="todo_delete_pics" src="./svg/trash.svg" width="30"
-              /></a>
+              <span class="todo-delete" data-id="<%= todoValue.id %>">
+                <img src="/svg/trash.svg" alt="Delete" width="20" />
+              </span>
             </td>
           </tr>
           <% }) %> <% } %>
@@ -107,7 +105,6 @@
 
         const todoId = element.getAttribute("data-id");
         const currentStatus = element.textContent;
-        const currentClass = element.className;
 
         try {
           const newStatus = currentStatus === "Todo" ? "Complete" : "Todo";
@@ -134,7 +131,8 @@
     });
 
     // Кнопка edit
-    const editIcons = document.querySelectorAll('img[src="./svg/edit.svg"]');
+    const editIcons = document.querySelectorAll(".todo-edit");
+
     editIcons.forEach((icon) => {
       icon.addEventListener("click", () => {
         const row = icon.closest("tr");

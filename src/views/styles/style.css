@@ -1,105 +1,103 @@
 @import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;700&display=swap");
 
 body {
-  background-color: #fff5ee;
+  background-color: #f0f0f0;
   font-family: "Martian Mono", monospace;
+  margin: 0;
+  padding: 0;
 }
 
-.header {
-  text-align: left;
-  padding: 20px 0;
-  margin-left: 50px;
-  color: black;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin: 30px 0 20px 0;
+}
+
+header h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+header p {
+  font-size: 16px;
+  color: #666;
 }
 
 form {
-  text-align: left;
-  margin: 0 0 20px 50px;
+  display: flex;
+  margin-bottom: 20px;
 }
 
 .input {
-  width: 80%;
+  flex: 1;
   padding: 10px;
   font-size: 16px;
-  border-radius: 12px;
-}
-
-.borderless {
-  font-family: "Martian Mono", monospace;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 10px 15px;
   font-size: 16px;
-  border-radius: 12px;
-  border-color: black;
-  background-color: #fff;
-  color: black;
+  background-color: #4caf50;
+  color: #fff;
+  border: 1px solid #4caf50;
+  border-radius: 0 5px 5px 0;
   cursor: pointer;
 }
-.form {
-  width: 90%;
-  margin: 0 auto;
-}
+
 table {
-  width: 90%;
-  margin: 20px auto;
+  width: 100%;
   border-collapse: collapse;
-  font-size: 18px;
-  table-layout: fixed;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
 th {
-  background-color: #fff5ee;
-  color: black;
-  padding: 10px;
-  border: 5px;
-}
-
-td {
-  padding: 12px;
-  border: 1px solid #ddd1d1;
-  text-align: center;
-}
-
-.todo-value {
-  font-size: 16px;
-}
-
-.order {
-  width: 50px;
-}
-
-.header_title {
-  font-weight: bold;
-}
-
-.Complete {
-  border: 2px solid #158507;
-  padding: 5px;
-  color: #158507;
-  border-radius: 8px;
-}
-
-.Todo {
-  border: 2px solid #4f4d4d;
-  padding: 5px;
-  color: #4f4d4d;
-  border-radius: 8px;
-}
-
-.todo_delete_pics {
-  background-size: 20px 30px;
+  background-color: #4caf50;
+  color: #fff;
 }
 
 .todo-status {
   cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.Complete {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.Todo {
+  background-color: #e53935;
+  color: #fff;
+}
+
+.todo-edit,
+.todo-delete {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.todo-index {
+  font-weight: bold;
+}
+
+.todo-delete {
+  color: #e53935;
 }
 
 .todo-edit {
-  cursor: pointer;
+  margin-right: 10px;
 }

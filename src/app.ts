@@ -1,10 +1,10 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response, NextFunction } from "express";
 import path from "path";
 import methodOverride from "method-override";
 import bodyParser from "body-parser";
 import todoRouter from "./routes/todoRouters";
 import onboardingRouter from "./routes/onboardingRouters";
-import { NextFunction } from "express";
+import loginRouter from "./routes/loginRouters";
 
 const app = express();
 
@@ -30,5 +30,6 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 app.use("/onboarding", onboardingRouter);
 app.use("/tasks", todoRouter);
+app.use("/login", loginRouter);
 
 export default app;
