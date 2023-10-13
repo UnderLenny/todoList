@@ -1,129 +1,129 @@
 <!doctype html>
 <html lang="ru">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TaskManager: организуйте свою жизнь в движении</title>
     <link rel="stylesheet" href="styles/onboard-style.css" />
     <link rel="shortcut icon" href="svg/onboard-logo.png" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="nav">
+</head>
+<body>
+<header class="header">
+    <div class="nav">
         <div class="logo-block">
-          <a class="logo-text">TaskManager</a>
+            <a class="logo-text">TaskManager</a>
         </div>
         <div class="nav-list">
-          <a class="nav-link" href="">О нас</a>
-          <a class="nav-link" href="">Тех.Поддержка</a>
-          <a class="nav-link" href="/login">Войти</a>
-          <a class="start-button" href="">Начать бесплатно</a>
+            <a class="nav-link" href="">О нас</a>
+            <a class="nav-link" href="">Тех.Поддержка</a>
+            <a class="nav-link" href="">Войти</a>
+            <a class="start-button" href="/register">Начать бесплатно</a>
         </div>
-      </div>
-    </header>
-    <div class="main-section">
-      <div class="container">
+    </div>
+</header>
+<div class="main-section">
+    <div class="container">
         <h1 class="header-title">Добро пожаловать в TaskManager!</h1>
         <p class="text-title">
-          Воспользуйтесь всеми преимуществами нашего продукта для повышения
-          эффективности вашей повседневной работы.
+            Воспользуйтесь всеми преимуществами нашего продукта для повышения
+            эффективности вашей повседневной работы.
         </p>
-        <a class="start-button">Начать бесплатно</a>
-      </div>
+        <a class="start-button" href="/register">Начать бесплатно</a>
     </div>
-    <main class="main">
-      <div class="container">
+</div>
+<main class="main">
+    <div class="container">
         <div class="main-block">
-          <div class="thesis">
-            <img class="thesis-img" src="svg/main1.jpeg" />
-            <div class="thesis-block">
-              <h2 class="thesis-title">Оптимизируйте свои задачи</h2>
-              <p class="thesis-paragraf">
-                TaskManager оптимизирует ваши задачи и помогает вам оставаться
-                организованным. Благодаря нашему интуитивно понятному интерфейсу
-                вы можете легко управлять своим списком дел.
-              </p>
+            <div class="thesis">
+                <img class="thesis-img" src="svg/main1.jpeg" alt='thesis-img' />
+                <div class="thesis-block">
+                    <h2 class="thesis-title">Оптимизируйте свои задачи</h2>
+                    <p class="thesis-paragraph">
+                        TaskManager оптимизирует ваши задачи и помогает вам оставаться
+                        организованным. Благодаря нашему интуитивно понятному интерфейсу
+                        вы можете легко управлять своим списком дел.
+                    </p>
+                </div>
             </div>
-          </div>
-          <div class="thesis">
-            <div class="thesis-block">
-              <h2 class="thesis-title">Повысьте продуктивность</h2>
-              <p class="thesis-paragraf">
-                Используя TaskManager, вы можете повысить свою продуктивность и
-                успеть сделать больше. Наши инструменты и функции созданы, чтобы
-                помочь вам сосредоточиться и достичь своих целей.
-              </p>
+            <div class="thesis">
+                <div class="thesis-block">
+                    <h2 class="thesis-title">Повысьте продуктивность</h2>
+                    <p class="thesis-paragraph">
+                        Используя TaskManager, вы можете повысить свою продуктивность и
+                        успеть сделать больше. Наши инструменты и функции созданы, чтобы
+                        помочь вам сосредоточиться и достичь своих целей.
+                    </p>
+                </div>
+                <img class="thesis-img" src="svg/main2.jpeg" />
             </div>
-            <img class="thesis-img" src="svg/main2.jpeg" />
-          </div>
-          <div class="thesis">
-            <img class="thesis-img" src="svg/main3.jpeg" />
-            <div class="thesis-block">
-              <h2 class="thesis-title">Соблюдайте сроки</h2>
-              <p class="thesis-paragraph">
-                TaskManager позволяет вам устанавливать сроки выполнения ваших
-                задач и отправляет вам напоминания, чтобы вы никогда больше не
-                пропустили важный срок. Оставайтесь на верном пути и с легкостью
-                достигайте своих целей.
-              </p>
+            <div class="thesis">
+                <img class="thesis-img" src="svg/main3.jpeg" />
+                <div class="thesis-block">
+                    <h2 class="thesis-title">Соблюдайте сроки</h2>
+                    <p class="thesis-paragraph">
+                        TaskManager позволяет вам устанавливать сроки выполнения ваших
+                        задач и отправляет вам напоминания, чтобы вы никогда больше не
+                        пропустили важный срок. Оставайтесь на верном пути и с легкостью
+                        достигайте своих целей.
+                    </p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </main>
-    <section class="section-newsletter">
-      <div class="container">
+    </div>
+</main>
+<section class="section-newsletter">
+    <div class="container">
         <form
-          action="/onboarding"
-          method="post"
-          class="form"
-          name="userMail"
-          onsubmit="return validateEmail()"
+                action="/onboarding"
+                method="post"
+                class="form"
+                name="userMail"
+                onsubmit="return validateEmail()"
         >
-          <h2 class="newsletter-title">
-            Подпишись на нашу рассылку, чтобы узнавать больше новостей о нашем
-            продукте.
-          </h2>
-          <input
-            class="newsletter-input"
-            type="text"
-            placeholder="E-mail"
-            name="emailValue"
-          />
-          <button class="start-button">Подписаться</button>
+            <h2 class="newsletter-title">
+                Подпишись на нашу рассылку, чтобы узнавать больше новостей о нашем
+                продукте.
+            </h2>
+            <input
+                    class="newsletter-input"
+                    type="text"
+                    placeholder="E-mail"
+                    name="emailValue"
+            />
+            <button class="start-button">Подписаться</button>
         </form>
         <div class="error-notification" id="errorNotification"></div>
-      </div>
-    </section>
-    <footer class="footer">
-      <div class="container">
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
         <div class="footer-text">
-          <p>Designed and developed by Leonid Gevorgyan</p>
+            <p>Designed and developed by Leonid Gevorgyan</p>
         </div>
-      </div>
-    </footer>
-  </body>
-  <script>
-    function validateEmail() {
-      const emailInput = document.querySelector(".newsletter-input");
-      const errorNotification = document.querySelector(".error-notification");
+    </div>
+</footer>
+</body>
+<script>
+	function validateEmail() {
+		const emailInput = document.querySelector('.newsletter-input');
+		const errorNotification = document.querySelector('.error-notification');
 
-      const email = emailInput.value.trim();
+		const email = emailInput.value.trim();
 
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        errorNotification.innerText = "Некорректный адрес электронной почты";
-        errorNotification.classList.add("show");
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(email)) {
+			errorNotification.innerText = 'Некорректный адрес электронной почты';
+			errorNotification.classList.add('show');
 
-        setTimeout(() => {
-          errorNotification.innerText = "";
-          errorNotification.classList.remove("show");
-        }, 8000);
+			setTimeout(() => {
+				errorNotification.innerText = '';
+				errorNotification.classList.remove('show');
+			}, 8000);
 
-        return false;
-      }
+			return false;
+		}
 
-      return true;
-    }
-  </script>
+		return true;
+	}
+</script>
 </html>

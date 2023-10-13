@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Зарегистрировать бесплатный аккаунт</title>
+    <link rel='stylesheet' href="styles/register-style.css">
+</head>
+<body>
+<header class="header">
+    <div class='container'>
+        <div class="nav">
+            <div class="logo-block">
+                <a class="logo-text" href='/onboarding'>TaskManager</a>
+            </div>
+        </div>
+    </div>
+</header>
+<main class='main'>
+    <div class='container'>
+        <div class='register-container'>
+            <div class='register_block'>
+                <h1>Регистрация</h1>
+                <form>
+                    <div class='input-block'>
+                        <fieldset class='fieldset-input'>
+                            <legend class='legend-title'>Email</legend>
+                            <label>
+                                <input class="register-input" type="text" name="email" value=""
+                                       placeholder="Введите Email-адрес..."
+                                       required>
+                            </label><br>
+                        </fieldset>
+                    </div>
+                    <div class='input-block'>
+                        <fieldset class='fieldset-input'>
+                            <legend class='legend-title'>Пароль</legend>
+                            <label>
+                                <input class="register-input" type="password" name="password" value=""
+                                       placeholder="Введите пароль">
+                            </label><br>
+                        </fieldset>
+                    </div>
+                    <input class="register-input-button" type="submit" value="Зарегистрироваться через Email">
+                    <p class='input-text'>Регистрируясь на сайте, вы соглашаетесь с <a class="input-link" href=''>Условиями
+                            использования</a> и
+                        <a class="input-link" href=''>Политикой
+                            конфиденциальности</a>.
+                    </p>
+                </form>
+            </div>
+            <img class='register-pic' src='svg/registerMain.jpg' alt='register-pic'>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

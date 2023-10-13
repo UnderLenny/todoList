@@ -1,168 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 body {
-  font-family: "Montserrat", sans-serif;
-  background-color: #fffffe;
-  color: #323232;
-  margin: 0;
-  padding: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #fffffe;
+    color: #323232;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-  max-width: 1170px;
-  margin: 0 auto;
-  padding-top: 80px;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding-top: 80px;
 }
 
 .logo-text {
-  color: #4e944f;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 16px;
-  height: 32px;
+    color: #4e944f;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 16px;
+    height: 32px;
 }
 
 .nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 24px;
-  position: fixed;
-  top: 0;
-  width: calc(100% - 40px);
-  min-height: 72px;
-  z-index: 1000;
-  padding-top: 30px;
-  font-size: 15.5px;
-  letter-spacing: 1.3px;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 40px);
+    min-height: 72px;
+    z-index: 1000;
+    font-size: 15.5px;
+    letter-spacing: 0.7px;
 }
 
 .nav-link {
-  color: #323232;
-  margin-right: 10px;
-  font-weight: 600;
-  text-decoration: none;
-  background-color: transparent;
-  transition: background-color 30s linear;
+    color: #323232;
+    margin-right: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: transparent;
+    transition: background-color 30s linear;
 }
 
 .nav-link:hover {
-  color: #000;
+    color: #000;
 }
 
 .start-button {
-  color: #fffffe;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 15px;
-  border: 1px solid #4e944f;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: #4e944f;
+    color: #fffffe;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+    border: 1px solid #4e944f;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #4e944f;
 }
 
 .header-title {
-  font-size: 67px;
-  font-weight: 600;
+    font-size: 67px;
+    font-weight: 600;
 }
 
 .text-title {
-  font-size: 20px;
-  color: #232115;
+    font-size: 20px;
+    color: #232115;
 }
 
 .main-section {
-  text-align: center;
-  width: 800px;
-  margin: 0 auto;
-  position: relative;
-  padding-top: 50px;
+    text-align: center;
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 50px;
 }
 
 .section-newsletter {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 500px;
-  margin: 0 auto;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .form input {
-  padding: 8px;
-  margin-bottom: 8px;
+    padding: 8px;
+    margin-bottom: 8px;
 }
 
 .form button {
-  padding: 8px;
-  background-color: #4e944f;
-  color: #fffffe;
-  border: none;
-  border-radius: 5px;
-  margin-top: 5px;
+    padding: 8px;
+    background-color: #4e944f;
+    color: #fffffe;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
 .newsletter-title {
-  font-weight: 800;
+    font-weight: 800;
 }
 
 .newsletter-input {
-  width: 300px;
-  border-radius: 7px;
+    width: 300px;
+    border-radius: 7px;
 }
 
 .error-notification {
-  display: none;
-  border: 1px solid #ffd36e;
-  border-radius: 15px;
-  background-color: #ffd36e;
-  color: #323232;
-  font-weight: 600;
-  padding: 30px;
-  animation: fadeOut 1s ease-in-out 8s forwards;
+    display: none;
+    border: 1px solid #ffd36e;
+    border-radius: 15px;
+    background-color: #ffd36e;
+    color: #323232;
+    font-weight: 600;
+    padding: 30px;
+    animation: fadeOut 1s ease-in-out 8s forwards;
 }
 
 .error-notification.show {
-  display: inline;
-  animation: none;
+    display: inline;
+    animation: none;
 }
 
 .main {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 .thesis {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 80px;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 80px;
 }
 
 .thesis-img {
-  max-width: 568px;
-  border-radius: 16px;
+    max-width: 568px;
+    border-radius: 16px;
 }
 
 .thesis-block {
-  padding: 42px 60px 0 60px;
+    padding: 42px 60px 0 60px;
 }
 
 .thesis-title {
-  font-size: 36px;
-  font-weight: 800;
-  line-height: 40px;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 40px;
 }
 
 .thesis-paragraph {
-  font-size: 20px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 /* Footer */
 .footer {
-  margin-top: 50px;
-  padding: 50px;
+    margin-top: 50px;
+    padding: 50px;
 }
 
 .footer-text {
-  text-align: center;
+    text-align: center;
 }

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #fffffe;
+    color: #323232;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding-top: 80px;
+}
+
+.logo-text {
+    color: #4e944f;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 16px;
+    height: 32px;
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 40px);
+    min-height: 72px;
+    z-index: 1000;
+    font-size: 15.5px;
+    letter-spacing: 0.7px;
+}
+
+.register-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.register_block {
+    margin-top: 100px;
+    display: inline-block;
+}
+
+.fieldset-input {
+    border: none;
+}
+
+.input-block {
+    margin-top: 20px;
+    border: 1px solid #323232;
+    border-radius: 10px;
+    padding-top: 5px;
+    width: 400px;
+}
+
+.legend-title {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.register-input {
+    font-size: 16px;
+    border: none;
+}
+
+.register-input:focus {
+    outline: none;
+}
+
+.register-input-button {
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: #4e944f;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    padding: 13px;
+    width: 400px;
+}
+
+.input-text {
+    font-size: 13px;
+    width: 400px;
+}
+
+.input-link {
+    color: #323232;
+}
+
+.register-pic {
+    width: 450px;
+}
