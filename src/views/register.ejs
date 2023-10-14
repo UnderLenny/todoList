@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Зарегистрировать бесплатный аккаунт</title>
-    <link rel='stylesheet' href="styles/register-style.css">
+    <link rel="stylesheet" type="text/css" href="/styles/register-style.css">
+    <link rel="shortcut icon" href="/pics/favicon.png" />
 </head>
 <body>
 <header class="header">
@@ -21,9 +22,10 @@
         <div class='register-container'>
             <div class='register_block'>
                 <h1>Регистрация</h1>
-                <form action="/api/auth/registration"
+                <form action="/api/v1/auth/registration"
                       method="post"
                       class="form"
+
                 >
                     <div class='input-block'>
                         <fieldset class='fieldset-input'>
@@ -42,11 +44,10 @@
                                 <input class="register-input" id="password-input" type="password" name="password"
                                        value=""
                                        placeholder="Введите пароль">
-
                             </label><br>
                         </fieldset>
                     </div>
-                    <input class="register-input-button" type="submit" value="Зарегистрироваться через Email">
+                    <button class="register-input-button" type="submit">Зарегистрироваться через Email</button>
                     <p class='input-text'>Регистрируясь на сайте, вы соглашаетесь с <a class="input-link" href=''>Условиями
                             использования</a> и
                         <a class="input-link" href=''>Политикой
@@ -55,22 +56,10 @@
                     <p class='input-login-text'>Уже есть аккаунт? Тогда <a class="input-link" href=''>войдите</a></p>
                 </form>
             </div>
-            <img class='register-pic' src='svg/registerMain.jpg' alt='register-pic'>
+            <img class='register-pic' src='/pics/registerMain.jpg' alt='register-pic'>
         </div>
     </div>
 </main>
 </body>
-<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		const form = document.querySelector('.form');
 
-		form.addEventListener('submit', async function(event) {
-			event.preventDefault();
-
-			const formData = new FormData(form);
-			const response = await fetch(form.action, {
-				method: 'POST',
-				body: formData,
-			});
-</script>
 </html>

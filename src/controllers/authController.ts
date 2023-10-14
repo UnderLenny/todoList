@@ -67,7 +67,7 @@ export class AuthController {
 					});
 				} else {
 					const token = signToken(user._id);
-					res.status(400).json({
+					res.status(200).json({
 						status: 'Success',
 						token: token
 					});
@@ -77,14 +77,6 @@ export class AuthController {
 		} catch (err) {
 			console.log(err);
 			res.status(400).json({ message: 'Login error' });
-		}
-	}
-
-	async getUser(req: Request, res: Response): Promise<void> {
-		try {
-			res.json('server work');
-		} catch (err) {
-			console.log(err);
 		}
 	}
 }

@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use('/styles', express.static(path.join(__dirname, 'views/styles')));
-app.use('/svg', express.static(path.join(__dirname, 'views/svg')));
+app.use('/pics', express.static(path.join(__dirname, 'views/pics')));
 
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,7 +29,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use('/onboarding', onboardingRouter);
-app.use('/api/tasks', todoRouter);
-app.use('/api/auth', authRouter);
+app.use('/api/v1/tasks', todoRouter);
+app.use('/api/v1/auth', authRouter);
 
 export default app;

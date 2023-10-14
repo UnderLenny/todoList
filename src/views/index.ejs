@@ -1,177 +1,178 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
     <link rel="stylesheet" href="styles/style.css" />
-    <link rel="shortcut icon" href="/svg/todo-logo.svg" />
-  </head>
-  <body>
-    <div class="container">
-      <header>
+    <link rel="shortcut icon" href="/pics/favicon.png" />
+</head>
+<body>
+<div class="container">
+    <header>
         <h1>Todo List</h1>
         <p>If you are going through hell, go without stopping</p>
-      </header>
+    </header>
 
-      <div class="form">
+    <div class="form">
         <form action="/tasks" method="post" autocomplete="off">
-          <input
-            class="input"
-            type="text"
-            placeholder="Add todos..."
-            name="todoValue"
-            required
-            maxlength="30"
-          />
-          <button type="submit">Add Task</button>
+            <input
+                    class="input"
+                    type="text"
+                    placeholder="Add todos..."
+                    name="todoValue"
+                    required
+                    maxlength="30"
+            />
+            <button type="submit">Add Task</button>
         </form>
-      </div>
+    </div>
 
-      <table>
+    <table>
         <thead>
-          <tr>
+        <tr>
             <th>#</th>
             <th>Task Name</th>
             <th>Status</th>
             <th>Edit</th>
             <th>Remove</th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
-          <% if(todos) { %> <% todos.forEach((todoValue, index) => { %>
-          <tr>
-            <td><span class="todo-index"><%= index + 1 %></span></td>
-            <td>
-              <span class="todo-value task-name" data-id="<%= todoValue._id %>"
-                ><%= todoValue.todo %></span
+        <% if(todos) { %> <% todos.forEach((todoValue, index) => { %>
+            <tr>
+                <td><span class="todo-index"><%= index + 1; %></span></td>
+                <td>
+              <span class="todo-value task-name" data-id="<%= todoValue._id; %>"
+              ><%= todoValue.todo; %></span
               >
-            </td>
-            <td>
+                </td>
+                <td>
               <span
-                class="todo-status <%= todoValue.status %>"
-                data-id="<%= todoValue._id %>"
-                ><%= todoValue.status %></span
+                      class="todo-status <%= todoValue.status; %>"
+                      data-id="<%= todoValue._id; %>"
+              ><%= todoValue.status; %></span
               >
-            </td>
-            <td>
-              <span class="todo-edit" data-id="<%= todoValue._id %>">
+                </td>
+                <td>
+              <span class="todo-edit" data-id="<%= todoValue._id; %>">
                 <img src="/svg/edit.svg" alt="Edit" width="20" />
               </span>
-            </td>
-            <td>
-              <span class="todo-delete" data-id="<%= todoValue.id %>">
+                </td>
+                <td>
+              <span class="todo-delete" data-id="<%= todoValue.id; %>">
                 <img src="/svg/trash.svg" alt="Delete" width="20" />
               </span>
-            </td>
-          </tr>
-          <% }) %> <% } %>
+                </td>
+            </tr>
+        <% }); %>
+        <% } %>
         </tbody>
-      </table>
-    </div>
-  </body>
-  <script>
-    // Кнопка удаления
-    const deleteButtons = document.querySelectorAll(".todo-delete");
+    </table>
+</div>
+</body>
+<script>
+	// Кнопка удаления
+	const deleteButtons = document.querySelectorAll(".todo-delete");
 
-    deleteButtons.forEach((button) => {
-      button.addEventListener("click", async (e) => {
-        e.preventDefault();
+	deleteButtons.forEach((button) => {
+		button.addEventListener("click", async (e) => {
+			e.preventDefault();
 
-        const todoId = button.getAttribute("data-id");
+			const todoId = button.getAttribute("data-id");
 
-        try {
-          const response = await fetch(`/tasks/${todoId}`, {
-            method: "DELETE",
-          });
+			try {
+				const response = await fetch(`/tasks/${todoId}`, {
+					method: "DELETE",
+				});
 
-          if (response.status === 204) {
-            button.closest("tr").remove();
-          } else {
-            console.error("Failed to delete todo");
-          }
-        } catch (err) {
-          console.error("Failed to delete todo:", err);
-        }
-      });
-    });
+				if (response.status === 204) {
+					button.closest("tr").remove();
+				} else {
+					console.error("Failed to delete todo");
+				}
+			} catch (err) {
+				console.error("Failed to delete todo:", err);
+			}
+		});
+	});
 
-    // Изменение статуса при нажатии
-    const todoStatusElements = document.querySelectorAll(".todo-status");
+	// Изменение статуса при нажатии
+	const todoStatusElements = document.querySelectorAll(".todo-status");
 
-    todoStatusElements.forEach((element) => {
-      element.addEventListener("click", async (e) => {
-        e.preventDefault();
+	todoStatusElements.forEach((element) => {
+		element.addEventListener("click", async (e) => {
+			e.preventDefault();
 
-        const todoId = element.getAttribute("data-id");
-        const currentStatus = element.textContent;
+			const todoId = element.getAttribute("data-id");
+			const currentStatus = element.textContent;
 
-        try {
-          const newStatus = currentStatus === "Todo" ? "Complete" : "Todo";
+			try {
+				const newStatus = currentStatus === "Todo" ? "Complete" : "Todo";
 
-          const response = await fetch(`tasks/${todoId}`, {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ status: newStatus }),
-          });
+				const response = await fetch(`tasks/${todoId}`, {
+					method: "PATCH",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ status: newStatus }),
+				});
 
-          if (response.status === 200) {
-            element.textContent = newStatus;
-            element.classList.remove("Todo", "Complete");
-            element.classList.add(newStatus);
-          } else {
-            console.error("Failed to update todo status");
-          }
-        } catch (err) {
-          console.error("Failed to delete todo status:", err);
-        }
-      });
-    });
+				if (response.status === 200) {
+					element.textContent = newStatus;
+					element.classList.remove("Todo", "Complete");
+					element.classList.add(newStatus);
+				} else {
+					console.error("Failed to update todo status");
+				}
+			} catch (err) {
+				console.error("Failed to delete todo status:", err);
+			}
+		});
+	});
 
-    // Кнопка edit
-    const editIcons = document.querySelectorAll(".todo-edit");
+	// Кнопка edit
+	const editIcons = document.querySelectorAll(".todo-edit");
 
-    editIcons.forEach((icon) => {
-      icon.addEventListener("click", () => {
-        const row = icon.closest("tr");
-        const taskText = row.querySelector(".task-name");
+	editIcons.forEach((icon) => {
+		icon.addEventListener("click", () => {
+			const row = icon.closest("tr");
+			const taskText = row.querySelector(".task-name");
 
-        const inputElement = document.createElement("input");
-        inputElement.value = taskText.textContent;
-        inputElement.classList.add("borderless");
-        inputElement.setAttribute("data-id", icon.getAttribute("data-id"));
-        inputElement.setAttribute("maxlength", "30");
+			const inputElement = document.createElement("input");
+			inputElement.value = taskText.textContent;
+			inputElement.classList.add("borderless");
+			inputElement.setAttribute("data-id", icon.getAttribute("data-id"));
+			inputElement.setAttribute("maxlength", "30");
 
-        taskText.replaceWith(inputElement);
+			taskText.replaceWith(inputElement);
 
-        inputElement.addEventListener("keydown", async (e) => {
-          if (e.key === "Enter") {
-            const todoId = icon.getAttribute("data-id");
+			inputElement.addEventListener("keydown", async (e) => {
+				if (e.key === "Enter") {
+					const todoId = icon.getAttribute("data-id");
 
-            try {
-              const response = await fetch(`/tasks/${todoId}`, {
-                method: "PATCH",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ todo: inputElement.value }),
-              });
+					try {
+						const response = await fetch(`/tasks/${todoId}`, {
+							method: "PATCH",
+							headers: {
+								"Content-Type": "application/json",
+							},
+							body: JSON.stringify({ todo: inputElement.value }),
+						});
 
-              if (response.status === 200) {
-                taskText.textContent = inputElement.value;
-              } else {
-                console.error("Failed to update todo");
-              }
-            } catch (err) {
-              console.error("Failed to update todo:", err);
-            }
-            inputElement.replaceWith(taskText);
-          }
-        });
-        inputElement.focus();
-      });
-    });
-  </script>
+						if (response.status === 200) {
+							taskText.textContent = inputElement.value;
+						} else {
+							console.error("Failed to update todo");
+						}
+					} catch (err) {
+						console.error("Failed to update todo:", err);
+					}
+					inputElement.replaceWith(taskText);
+				}
+			});
+			inputElement.focus();
+		});
+	});
+</script>
 </html>
