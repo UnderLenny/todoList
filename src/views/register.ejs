@@ -21,7 +21,10 @@
         <div class='register-container'>
             <div class='register_block'>
                 <h1>Регистрация</h1>
-                <form>
+                <form action="/api/auth/registration"
+                      method="post"
+                      class="form"
+                >
                     <div class='input-block'>
                         <fieldset class='fieldset-input'>
                             <legend class='legend-title'>Email</legend>
@@ -36,8 +39,10 @@
                         <fieldset class='fieldset-input'>
                             <legend class='legend-title'>Пароль</legend>
                             <label>
-                                <input class="register-input" type="password" name="password" value=""
+                                <input class="register-input" id="password-input" type="password" name="password"
+                                       value=""
                                        placeholder="Введите пароль">
+
                             </label><br>
                         </fieldset>
                     </div>
@@ -47,12 +52,25 @@
                         <a class="input-link" href=''>Политикой
                             конфиденциальности</a>.
                     </p>
+                    <p class='input-login-text'>Уже есть аккаунт? Тогда <a class="input-link" href=''>войдите</a></p>
                 </form>
             </div>
             <img class='register-pic' src='svg/registerMain.jpg' alt='register-pic'>
         </div>
     </div>
 </main>
-
 </body>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const form = document.querySelector('.form');
+
+		form.addEventListener('submit', async function(event) {
+			event.preventDefault();
+
+			const formData = new FormData(form);
+			const response = await fetch(form.action, {
+				method: 'POST',
+				body: formData,
+			});
+</script>
 </html>

@@ -4,7 +4,7 @@ import methodOverride from 'method-override';
 import bodyParser from 'body-parser';
 import todoRouter from './routes/todoRouters';
 import onboardingRouter from './routes/onboardingRouters';
-import registerRouter from './routes/registerRouters';
+import authRouter from './routes/authRouters';
 
 const app = express();
 
@@ -29,7 +29,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use('/onboarding', onboardingRouter);
-app.use('/tasks', todoRouter);
-app.use('/register', registerRouter);
+app.use('/api/tasks', todoRouter);
+app.use('/api/auth', authRouter);
 
 export default app;

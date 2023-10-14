@@ -93,6 +93,14 @@ body {
     color: #323232;
 }
 
+.input-login-text {
+    margin-top: 30px;
+    color: #323232;
+    font-size: 13px;
+    text-align: center;
+}
+
 .register-pic {
     width: 450px;
+    border-radius: 15px;
 }
