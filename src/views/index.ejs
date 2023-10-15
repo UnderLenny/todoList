@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
     <link rel="shortcut icon" href="/pics/favicon.png" />
 </head>
 <body>
@@ -13,7 +13,6 @@
         <h1>Todo List</h1>
         <p>If you are going through hell, go without stopping</p>
     </header>
-
     <div class="form">
         <form action="/tasks" method="post" autocomplete="off">
             <input
@@ -27,7 +26,6 @@
             <button type="submit">Add Task</button>
         </form>
     </div>
-
     <table>
         <thead>
         <tr>
@@ -82,7 +80,7 @@
 			const todoId = button.getAttribute("data-id");
 
 			try {
-				const response = await fetch(`/tasks/${todoId}`, {
+				const response = await fetch(`/api/v1/tasks/${todoId}`, {
 					method: "DELETE",
 				});
 

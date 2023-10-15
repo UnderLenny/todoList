@@ -2,9 +2,9 @@ import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import methodOverride from 'method-override';
 import bodyParser from 'body-parser';
-import todoRouter from './routes/todoRouters';
-import onboardingRouter from './routes/onboardingRouters';
-import authRouter from './routes/authRouters';
+import todoRouter from './routes/todoRoutes';
+import onboardingRouter from './routes/onboardingRoutes';
+import authRouter from './routes/authRoutes';
 
 const app = express();
 

@@ -1,4 +1,3 @@
-// authController.ts
 import { Request, Response } from 'express';
 import User from './../models/userModel';
 import bcrypt from 'bcryptjs';
@@ -11,7 +10,7 @@ const signToken = (id: string | number): string => {
 };
 
 export class AuthController {
-	async getLogin(req: Request, res: Response): Promise<void> {
+	async getAuthView(req: Request, res: Response): Promise<void> {
 		try {
 			res.render('register');
 		} catch (err) {
@@ -35,10 +34,11 @@ export class AuthController {
 			const user = new User({ email, password: hashPassword });
 			console.log(user);
 			await user.save();
-			res.status(200).json({
-				status: 'success',
-				message: 'Пользователь успешно зарегистрирован'
-			});
+			// res.status(200).json({
+			// 	status: 'success',
+			// 	message: 'Пользователь успешно зарегистрирован'
+			// });
+			res.redirect('/api/v1/tasks');
 			return;
 		} catch (err) {
 			console.log(err);
