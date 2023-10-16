@@ -21,11 +21,11 @@
     <div class='container'>
         <div class='register-container'>
             <div class='register_block'>
-                <h1>Регистрация</h1>
+                <h1>Авторизация</h1>
                 <form
                         id="registrationForm"
                         class="form"
-                        action="/api/v1/auth/registration"
+                        action="/api/v1/auth/"
                         method="post"
                 >
                     <div class='input-block'>
@@ -48,16 +48,17 @@
                             </label><br>
                         </fieldset>
                     </div>
-                    <button class="register-input-button" type="submit">Зарегистрироваться через Email</button>
+                    <button class="register-input-button" type="submit">Войти</button>
                     <p class='input-text'>Регистрируясь на сайте, вы соглашаетесь с <a class="input-link" href=''>Условиями
                             использования</a> и
                         <a class="input-link" href=''>Политикой
                             конфиденциальности</a>.
                     </p>
-                    <p class='input-login-text'>Уже есть аккаунт? Тогда <a class="input-link" href=''>войдите</a></p>
+                    <p class='input-login-text'>Еще нет аккаунта? Тогда <a class="input-link" href='register'>зарегистрируйтесь</a>
+                    </p>
                 </form>
             </div>
-            <img class='register-pic' src='/pics/registerMain.jpg' alt='register-pic'>
+            <img class='register-pic' src='/pics/authMain.jpg' alt='register-pic'>
         </div>
     </div>
 </main>

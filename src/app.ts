@@ -2,9 +2,10 @@ import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import methodOverride from 'method-override';
 import bodyParser from 'body-parser';
-import todoRouter from './routes/todoRoutes';
-import onboardingRouter from './routes/onboardingRoutes';
-import authRouter from './routes/authRoutes';
+import todoRouters from './routes/todoRouters';
+import onboardingRouters from './routes/onboardingRouters';
+import authRouters from './routes/authRouters';
+import registerRouters from './routes/registerRouters';
 
 const app = express();
 
@@ -28,8 +29,9 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 	}
 });
 
-app.use('/onboarding', onboardingRouter);
-app.use('/api/v1/tasks', todoRouter);
-app.use('/api/v1/auth', authRouter);
+app.use('/onboarding', onboardingRouters);
+app.use('/api/v1/tasks', todoRouters);
+app.use('/api/v1/auth', authRouters);
+app.use('/api/v1/register', registerRouters);
 
 export default app;

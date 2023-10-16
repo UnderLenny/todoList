@@ -25,14 +25,14 @@
                 <form
                         id="registrationForm"
                         class="form"
-                        action="/api/v1/auth/registration"
+                        action="/api/v1/register/submit"
                         method="post"
                 >
                     <div class='input-block'>
                         <fieldset class='fieldset-input'>
                             <legend class='legend-title'>Email</legend>
                             <label>
-                                <input class="register-input" type="text" name="email" value=""
+                                <input class="register-input" type="email" name="email" value=""
                                        placeholder="Введите Email-адрес..."
                                        required>
                             </label><br>
@@ -54,7 +54,8 @@
                         <a class="input-link" href=''>Политикой
                             конфиденциальности</a>.
                     </p>
-                    <p class='input-login-text'>Уже есть аккаунт? Тогда <a class="input-link" href=''>войдите</a></p>
+                    <p class='input-login-text'>Уже есть аккаунт? Тогда <a class="input-link" href='/api/v1/auth/'>войдите</a>
+                    </p>
                 </form>
             </div>
             <img class='register-pic' src='/pics/registerMain.jpg' alt='register-pic'>
